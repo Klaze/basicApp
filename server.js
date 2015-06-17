@@ -2,12 +2,7 @@ var express = require("express"),
 	app = express(),
 	port = process.env['PORT'] || 3000;
 
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.static(__dirname + '/public/'));
-console.log(__dirname + '/public');
-
-
+//Route Handlers
 function home (req, res) {
 	res.setHeader("Content-Type", "text/html");
 	res.send('<html><head><title>extraUltima - Online</title></head><body><h1>Welcome to this , er, game.</h1><p><img src="images/sword_and_shield.png"><a href="/adventures">Click me to begin!</a></p></body></html>');
@@ -33,6 +28,21 @@ function showLoot (req, res) {
 	res.setHeader("Content-Type", "text/html");
 	res.send('<html><head><title>Ultima Descends</title></head><body><h1>ID: ' + id + ': Ogre Slayer</h1><p> +9 against Ogres</p></body></html>');
 }
+
+//Middlewares
+function stoopidLogger(options) {
+	return function stoopidLoggerInner(req, res, next) {
+		console.log("Hi! I was called at: ", req.path);
+		next();
+	};
+}
+
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+app.use("/", stoopidLogger());
+app.use(app.router);
+app.use(express.static(__dirname + '/public/'));
+
 
 //Routes
 app.get('/', home);
