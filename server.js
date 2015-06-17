@@ -4,23 +4,30 @@ var express = require("express"),
 
 function home (req, res) {
 	res.setHeader("Content-Type", "text/html");
-	res.send('<html><head><title>Ultima</title></head><body><h1>This is something special</h1><a href="/adventures">Go to this thing!</a></body></html>');
+	res.send('<html><head><title>extraUltima - Online</title></head><body><h1>Welcome to this , er, game.</h1><a href="/adventures">Click me to begin!</a></body></html>');
 }
 
 function adventuresIndex (req, res) {
 	res.setHeader("Content-Type", "text/html");
-	res.send('<html><head><title>Will Ultima Descend?</title></head><body><h1>Welcome ....to HELL!!!</h1><form action="/adventures" method="POST"><button type="submit">Yeah Boii!</button></form></body></html>');
+	res.send('<html><head><title>Will Ultima Descend?</title></head><body><h1>Are you Ready?</h1><form action="/adventures" method="POST"><button type="submit">Yes, my liege</button></form></body></html>');
 }
 
 function createAdventure (req, res) {
 	res.setHeader("Content-Type", "text/html");
-	res.send('<html><head><title>Ultima Descends</title></head><body><h1>Welcome ....to HELL!!!</h1><form action="/adventures" method="POST"><button type="submit">Do it again Do it Again!</button></form></body></html>');
+	res.send('<html><head><title>Ultima Descends</title></head><body><h1>This may work after all</h1><form action="/adventures" method="POST"><button type="submit">Try Again</button></form><p> You have found some <a href="/loot/1">Loot!</a></p></body></html>');
+}
+
+function showLoot (req, res) {
+	var id = req.params.id;
+	res.setHeader("Content-Type", "text/html");
+	res.send('<html><head><title>Ultima Descends</title></head><body><h1>ID: ' + id + ': Ogre Slayer</h1><p> +9 against Ogres</p></body></html>');
 }
 
 //Routes
-app.get('/', home(req, res));
-app.get('/adventures', adventuresIndex(req, res));
-app.post('/adventures', createAdventure(req, res));
+app.get('/', home);
+app.get('/adventures', adventuresIndex);
+app.post('/adventures', createAdventure);
+app.get('/loot/:id', showLoot);
 
 app.listen(port);
 
