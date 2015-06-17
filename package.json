@@ -1,0 +1,9 @@
+{
+	"name": "routes",
+	"description": "Showcase shit",
+	"version": "0.0.1B",
+	"private": true,
+	"author": "Elmo",
+	"main": "./server.js",
+	"dependencies": { "express": "3.x"}
+}
