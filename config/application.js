@@ -7,7 +7,7 @@ console.log("Loading App in " + env + " mode.");
 
 global.App = {
 	app: express(),
-	port: process.env.PORT,
+	port: process.env.PORT || 3000,
 	version: packageJson.version,
 	root: path.join(__dirname, '..'),
 	appPath: function(path) {
@@ -23,6 +23,9 @@ global.App = {
 			this.app.listen(this.port);
 			console.log("Running App Version: " + App.version + " on port: " + App.port + " in: " + App.env + " mode");
 		}
+	},
+	route : function(path) {
+		return this.require('./app/routes/' + path);
 	}
 };
 
@@ -32,6 +35,6 @@ App.app.use(express.methodOverride());
 App.app.use(express.cookieParser());
 App.app.use(express.cookieSession({secret: "Its a secret", key: "session"}));
 App.app.use(App.app.router);
-App.app.use(express.static(__dirname + '/public/'));
+App.app.use(express.static(App.appPath('public')));
 
 App.require('./config/routes')(App.app);

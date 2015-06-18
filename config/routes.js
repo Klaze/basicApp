@@ -1,10 +1,13 @@
-module.exports = function(app, handlers) {
-	var ensureAuthenticated = require('./ensureAuthenticated');
-	//Routes
-	app.get('/', handlers.home);
-	app.post('/login', handlers.login);
-	app.get('/adventures', handlers.adventuresIndex);
-	app.post('/adventures', handlers.createAdventure);
-	app.put('/adventures/:id', handlers.updateAdventure);
-	app.get('/loot/:id', handlers.showLoot);
+module.exports = function(app) {
+	//Handlers
+	var homeRoutes = App.route('homeRoutes');
+	app.get('/', homeRoutes.home);
+
+	var adventuresRoutes = App.route("adventuresRoutes");
+	app.get('/adventures', adventuresRoutes.index);
+	app.post('/adventures', adventuresRoutes.create);
+	app.put('/adventures/:id', adventuresRoutes.update);
+
+	var lootRoutes = App.route("lootRoutes");
+	app.get('/loot/:id', lootRoutes.show);
 };
