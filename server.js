@@ -1,15 +1,3 @@
-var express = require("express"),
-	app = express(),
-	port = process.env['PORT'] || 3000,
-	handlers = require('./handlers'),
-	middleware = require('./middleware'),
-	routes = require('./routes');
+require('./config/application');
 
-
-middleware(app, express, handlers);
-routes(app, handlers);
-
-
-app.listen(port);
-
-console.log('Server running on port: ' + port);
+App.start();

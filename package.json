@@ -1,7 +1,7 @@
 {
-	"name": "routes",
+	"name": "Structure",
 	"description": "Showcase shit",
-	"version": "0.0.1B",
+	"version": "0.0.11B",
 	"private": true,
 	"author": "Elmo",
 	"main": "./server.js",
