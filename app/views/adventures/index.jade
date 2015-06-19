@@ -1,0 +1,6 @@
+extends ../layouts/home
+
+block content
+  h1 Are you Ready #{user.username}?
+  form(action="/adventures" method="POST")
+    button(type="submit") Yes, my liege
