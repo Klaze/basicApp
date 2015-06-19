@@ -14,4 +14,8 @@ module.exports = function(app) {
 	var lootRoutes = App.route('lootRoutes');
 	app.get('/loot', lootRoutes.index);
 	app.get('/loot/:id', lootRoutes.show);
+
+	var usersRoutes = App.route('usersRoutes');
+	app.get('/sign_up', usersRoutes.new);
+	app.post('/sign_up', usersRoutes.create);
 };
