@@ -24,15 +24,22 @@ global.App = {
 			console.log("Running App Version: " + App.version + " on port: " + App.port + " in: " + App.env + " mode");
 		}
 	},
+	model: function(path) {
+		return this.require('./app/models/' + path);
+	},
 	route : function(path) {
 		return this.require('./app/routes/' + path);
+	},
+	util: function(path) {
+		return this.require('app/utils/' + path);
 	}
 };
 
-//Views
+//Setting Jade as Render Engine and views
 App.app.set('views', App.appPath('app/views'));
 App.app.set('view engine', 'jade');
 App.app.set('view options', {pretty: env === 'Development'});
+App.app.locals({bossify:App.util('bossify')});
 
 
 //Middleware
@@ -44,3 +51,6 @@ App.app.use(App.app.router);
 App.app.use(express.static(App.appPath('public')));
 
 App.require('./config/routes')(App.app);
+
+//DB Bootstrapping
+App.require('config/database')(process.env.DATABASE_URL || 'mongodb://localhost/nodeslash_development');

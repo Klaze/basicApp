@@ -1,11 +1,14 @@
 {
-	"name": "Structure",
-	"description": "Showcase shit",
-	"version": "0.0.11B",
-	"private": true,
-	"author": "Elmo",
-	"main": "./server.js",
-	"dependencies": { 
-		"express": "3.x",
-		"jade": "1.1.x"}
+  "name": "Structure",
+  "description": "Showcase shit",
+  "version": "0.0.11B",
+  "private": true,
+  "author": "Elmo",
+  "main": "./server.js",
+  "dependencies": {
+    "express": "3.x",
+    "jade": "1.1.x",
+    "marked": "*",
+    "mongoose": "3.x"
+  }
 }

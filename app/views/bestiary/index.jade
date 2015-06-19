@@ -1,0 +1,21 @@
+extends ../layouts/home
+
+mixin beastRow(beast)
+  tr(id='beast-#{beast.id}')
+    td= beast.name
+    td= beast.strength
+    td= beast.hp
+    td= beast.gold
+
+block content
+  h1 Official Bestiary
+  table
+    thead
+      tr
+        th Name
+        th Strength
+        th Hit Points
+        th Gold
+    tbody
+      - each beast in beasts
+        +beastRow(beast)

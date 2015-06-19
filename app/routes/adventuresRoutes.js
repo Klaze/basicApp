@@ -4,7 +4,7 @@ exports.index = function index (req, res) {
 		username: 'Apophis'
 	};
 
-	res.render('adventures/index', {user: user});
+	res.render('adventures/index', {title: 'Adventures - GrandUltima', user: user});
 };
 
 exports.create = function create (req, res) {
