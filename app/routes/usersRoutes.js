@@ -5,7 +5,8 @@ function newUser (req, res) {
 }
 
 function create (req, res) {
-	var u = new User({email: req.body.email});
+	console.log(req.body.password);
+	var u = new User({email: req.body.email, passwordHash: req.body.password});
 	u.save(function(err) {
 		if (err) {
 			res.status(422).send('Problem: ' + err.message);
