@@ -18,4 +18,8 @@ module.exports = function(app) {
 	var usersRoutes = App.route('usersRoutes');
 	app.get('/sign_up', usersRoutes.new);
 	app.post('/sign_up', usersRoutes.create);
+
+	var sessionRoutes = App.rout('sessionRoutes');
+	app.get('/sign_in', sessionRoutes.new);
+	app.post('/sign_in', sessionRoutes.create)
 };

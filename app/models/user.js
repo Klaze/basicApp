@@ -15,16 +15,31 @@ var schema = mongoose.Schema({
 
 schema.pre('save', function(next) {
 	var self = this;
-	self.validate(next);
+	console.log(self.passwordHash.length)
 	if (!self.isModified('passwordHash')) return next();
 
-	bcrypt.hash(self.passwordHash, SALT_WORK_FACTOR, function(err, hash) {		
+	self.validate( function (err) {
 		if (err) return next(err);
 
-		self.passwordHash = hash;
-		next();
+		bcrypt.hash(self.passwordHash, SALT_WORK_FACTOR, function(err, hash) {		
+			if (err) return next(err);
+
+			self.passwordHash = hash;
+			next();
+		});
 	});
 });
+
+schema.statics.findByEmailAndPassword = function findByEmailAndPassword(email, password, cb) {
+	this.findOne({email:email}, function(err, user) {
+		if (err) return cb(err);
+		if (!user) return cb();
+
+		bcrypt.compare(password, user.passwordHash, function(err, res) {
+			return cb(er, res ? user : null);
+		})
+	})
+}
 
 schema.set('autoIndex', App.env !== 'production');
 
