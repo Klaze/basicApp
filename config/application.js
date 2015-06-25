@@ -53,4 +53,4 @@ App.app.use(express.static(App.appPath('public')));
 App.require('./config/routes')(App.app);
 
 //DB Bootstrapping
-App.require('config/database')(process.env.DATABASE_URL || 'mongodb://localhost/nodeslash_development');
+App.require('config/database')(process.env.DATABASE_URL || 'mongodb://localhost/nodeslash_' + App.env);
