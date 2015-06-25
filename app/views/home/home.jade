@@ -1,18 +1,11 @@
 extends ../layouts/home
 
 block content
-  h1 Welcome to the game.  Please login.
-  
-  form.form-horizontal(action='/sign_in', method='post')
-    .form-group
-      label.control-label.col-sm-2 Email
-      .col-sm-10
-        input(type='email', name='email')
-    .form-group
-      label.control-label.col-sm-2 Password
-      .col-sm-10
-        input(type='password', name='password')
-    .form-group
-      .col-sm-offset-2
-        button(type='submit') Continue Forth
+  h1 Welcome to the game.
 
+  h2 Message from bad guys
+    :markdown
+      This is **markdown**
+  p
+    img(src="images/sword_and_shield.png")
+  a(href="/adventures") Click me to begin!
