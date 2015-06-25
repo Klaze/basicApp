@@ -36,7 +36,7 @@ schema.statics.findByEmailAndPassword = function findByEmailAndPassword(email, p
 		if (!user) return cb();
 
 		bcrypt.compare(password, user.passwordHash, function(err, res) {
-			return cb(er, res ? user : null);
+			return cb(err, res ? user : null);
 		})
 	})
 }

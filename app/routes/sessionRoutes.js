@@ -11,7 +11,7 @@ function create (req, res) {
 		} else if (!user) {
 			res.status(401).send('No User/Password Combo exists such as was entered.');
 		} else {
-			res.status(200).send('Welcome back, ', user.email);
+			res.status(200).send('Welcome back, ' + user.email);
 		}
 	})
 }
