@@ -12,7 +12,10 @@
     "marked": "*",
     "mongoose": "3.x",
     "mongoose-validate": "latest",
-    "mocha": "1.17.x",
     "async": "~0.2.10"
+  },
+  "devDependencies": {
+    "mocha": "1.17.x",
+    "supertest": "0.9.x"
   }
 }
