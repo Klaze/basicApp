@@ -12,9 +12,11 @@ nav.navbar.navbar-inverse(role='navigation')
     ul.nav.navbar-nav
       li
         a(href='/about') About
-      li
-        a(href='/sign_in') Sign In
-      li
-        a(href='/sign_up') Sign Up
-      li
-        a(href='/sign_out') Sign Out
+      - if(!isAuthenticated)
+        li
+          a(href='/sign_in') Sign In
+        li
+          a(href='/sign_up') Sign Up
+      - else
+        li
+          a(href='/sign_out') Sign Out
