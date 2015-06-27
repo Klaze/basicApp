@@ -1,3 +1,6 @@
+var passport = require('passport');
+
+
 module.exports = function(app) {
 	//Handlers
 	var homeRoutes = App.route('homeRoutes');
@@ -21,5 +24,6 @@ module.exports = function(app) {
 
 	var sessionRoutes = App.route('sessionRoutes');
 	app.get('/sign_in', sessionRoutes.new);
-	app.post('/sign_in', sessionRoutes.create)
+	app.post('/sign_in', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/sign_in', failureFlash: true}));
+	app.get('/sign_out', sessionRoutes.destroy);
 };

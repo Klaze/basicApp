@@ -15,7 +15,6 @@ var schema = mongoose.Schema({
 
 schema.pre('save', function(next) {
 	var self = this;
-	console.log(self.passwordHash.length)
 	if (!self.isModified('passwordHash')) return next();
 
 	self.validate( function (err) {
@@ -31,15 +30,15 @@ schema.pre('save', function(next) {
 });
 
 schema.statics.findByEmailAndPassword = function findByEmailAndPassword(email, password, cb) {
-	this.findOne({email:email}, function(err, user) {
+	Model.findOne({email:email}, function(err, user) {
 		if (err) return cb(err);
 		if (!user) return cb();
 
 		bcrypt.compare(password, user.passwordHash, function(err, res) {
 			return cb(err, res ? user : null);
-		})
-	})
-}
+		});
+	});
+};
 
 schema.set('autoIndex', App.env !== 'production');
 
