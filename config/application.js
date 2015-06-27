@@ -44,20 +44,31 @@ App.app.locals({bossify:App.util('bossify')});
 //Configure less
 var lessMiddleware = require('less-middleware'),
 	lessMiddlewareOptions = {
-
+		dest: App.appPath('/public'),
+		relativeUrls: true,
+		force: App.env === 'Development',
+		once: App.env !== 'Development',
+		debug: App.env === 'Development',
+		preprocess: {
+			path: function(pathname, req) {
+				return pathname.replace('/stylesheets', '');
+			}
+		}
 	},
 	lessParserOptions = {
-
+		dumpLineNumbers: 'mediaquery'
 	},
 	lessCompilerOptions = {
-
+		compress: App.env !== 'Development'
 	};
+
 App.app.use(lessMiddleware(
 	App.appPath('app/stylesheets'),
 	lessMiddlewareOptions,
 	lessParserOptions,
 	lessCompilerOptions
 ));
+
 
 //Middleware
 App.app.use(express.bodyParser());

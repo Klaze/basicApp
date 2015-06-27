@@ -2,6 +2,10 @@
 ##############################
 node_modules
 
+public/stylesheets
+
+tmp
+
 
 ####   Defaults    ####
 # Compiled source #
