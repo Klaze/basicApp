@@ -1,14 +1,58 @@
 extends ../layouts/home
 
 block content
-  h1 Welcome to the game.
+  .jumbotron.home__jumbotron
+    .container.home__jumbotron__hero
+      h1.home__jumbotron__headline What tales have been foretold?
+      p.home__jumbotron__copy ... OF the future?
+      p.home__jumbotron__copy ... ... OF the City?
+      p.home__jumbotron__copy ... ... ... OF YOU!
+        em Hahahahahaah
 
-  .system_message
-    h2 Message from bad guys
-      :markdown
-        ######Stuff
-        This is **markdown**, *here* go fight
-        = beasts[0].name
-  p Hello!
-    img(src="images/sword_and_shield.png")
-  a(href="/app/adventures") Click me to begin!
+
+  .home__feature
+    h3 Fate cannot be ignored.
+      button.btn.btn-primary
+        .fa.fa-road
+        | Answer to your destiny.
+
+  .container
+    .row
+      .col-md-6.home_column
+        h2.home_column__header
+          | Assume your predistined path with 
+          em.home_column__header__em more than 0 outcomes
+          | to choose from.
+        p
+          img(src='/images/sword_and_shield.png')
+      .col-md-offset-1.col-md-4.home_column
+        .row
+          .cols-xs-12
+            .panel.panel-info
+              .panel-heading
+                .fa.fa-flag
+                | Action
+              .panel-body
+                p Evil consumes you.  There is only but one truth.
+                p
+                  em Prepare for that which you sow, and shall reap
+        .row
+          .cols-xs-12
+            .panel.panel-info
+              .panel-heading
+                .fa.fa-bullhorn
+                | History
+              .panel-body
+                p A path already carved within time.
+                p
+                  em One of many....
+        .row
+          .cols-xs-12
+            .panel.panel-success
+              .panel-heading
+                .fa.fa-trophy
+                | Riches
+              .panel-body
+                p All things are bent with the sufficient force
+                p
+                  em Even time...

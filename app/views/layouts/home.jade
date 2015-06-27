@@ -2,13 +2,30 @@ doctype html
 html
   head
     title= title
-    link(type="text/css", rel="stylesheet", href="/stylesheets/application.css")
-  body
+    link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/application.css')
+    link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+  body.home
     include navBar
-    .container
-      include flash
+    include flash
+
+    .main
       block content
 
+    footer
+      .row
+        .col-sm-4.col-offset-2.footer__col
+          p Grand Ultima, the Ulitmate Grand &copy;, 2015, Sketchy Inc.
+          p This entire thing should be ignored to the extent fullest available to your capatacy
+          p
+            | Grand Ultima is proudly run on 
+            a(href='http://www.nodejs.org') NODE.JS
+            | So just bugger off to 
+            a(href='http://www.facebook.com') Your Momma
+            | .
+          .col-sm-4.col-sm-offset-1.footer__col
+            p: a(href='#') Terms of its usefullness
+            p: a(href='#') Privates Policy
     block extraJs
-      script(src="//code.jquery.com/jquery-1.11.3.min.js")
-      script(src="/js/bootstrap.min.js")
+      script(src='//code.jquery.com/jquery-1.11.3.min.js')
+      script(src='/js/bootstrap.min.js')
