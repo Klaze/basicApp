@@ -12,7 +12,8 @@
     "marked": "*",
     "mongoose": "3.x",
     "mongoose-validate": "latest",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "less-middleware": "~0.2.1-beta"
   },
   "devDependencies": {
     "mocha": "1.17.x",

@@ -41,6 +41,23 @@ App.app.set('view engine', 'jade');
 App.app.set('view options', {pretty: env === 'Development'});
 App.app.locals({bossify:App.util('bossify')});
 
+//Configure less
+var lessMiddleware = require('less-middleware'),
+	lessMiddlewareOptions = {
+
+	},
+	lessParserOptions = {
+
+	},
+	lessCompilerOptions = {
+
+	};
+App.app.use(lessMiddleware(
+	App.appPath('app/stylesheets'),
+	lessMiddlewareOptions,
+	lessParserOptions,
+	lessCompilerOptions
+));
 
 //Middleware
 App.app.use(express.bodyParser());

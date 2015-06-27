@@ -3,9 +3,12 @@ extends ../layouts/home
 block content
   h1 Welcome to the game.
 
-  h2 Message from bad guys
-    :markdown
-      This is **markdown**
+  .system_message
+    h2 Message from bad guys
+      :markdown
+        ######Stuff
+        This is **markdown**, *here* go fight
+        = beasts[0].name
   p
     img(src="images/sword_and_shield.png")
   a(href="/adventures") Click me to begin!
