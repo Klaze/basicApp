@@ -6,7 +6,7 @@ var User = App.model('user');
 
 function destroy (req, res) {
 	req.logout();
-	//req.flash('notice', 'You have succesfully signed out.');
+	req.flash('notice', 'You have succesfully signed the fuck out.');
 	res.redirect('/');
 }
 

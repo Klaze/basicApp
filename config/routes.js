@@ -24,6 +24,6 @@ module.exports = function(app) {
 
 	var sessionRoutes = App.route('sessionRoutes');
 	app.get('/sign_in', sessionRoutes.new);
-	app.post('/sign_in', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/sign_in', failureFlash: true}));
+	app.post('/sign_in', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/sign_in', failureFlash: 'That is not correct'}));
 	app.get('/sign_out', sessionRoutes.destroy);
 };
