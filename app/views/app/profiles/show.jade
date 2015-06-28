@@ -13,13 +13,21 @@ block content
   ul.nav.nav-tabs(role='tablist')
     li.active
       a(href='#profile' role='tab' data-toggle='tab')
-        i.fa.fa-gears
+        i.fa.fa-smile-o
         | The Information
+    li
+      a(href='#settings', role='tab', data-toggle='tab')
+        i.fa.fa-gears
+        | Your Settings
 
   .tab-content
     .tab-pane.active#profile.profile__tab_pane
       .row
         .col-md-4
+          .pull-right
+            a(href='/app/profile/edit', title='Edit your profile')
+              i.fa.fa-edit
+
           .profile__user_info
             .profile__avatar_wrapper
               img(src='/images/orc.png')

@@ -1,0 +1,27 @@
+extends ../../layouts/app
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-group
+        | Characters
+    li: | View Characters
+
+  h1 #{character.name}
+
+  .row
+    .col-sm-3
+      img.img-thumbnail.img-responsive(src='/images/sword_and_shield.png')
+    .col-sm-9
+      | #{character.name} is a human dreadnaught
+
+  .well.actions
+    a.btn.btn-primary(href='/app/characters/' + character.id + '/edit')
+      i.fa.fa-pencil
+      | Edit #{character.name}
+    form.actions__form(action='/app/characters/' + character.id + '/destroy', method='POST')
+      input(type='hidden', name='_method', value='DELETE')
+      button.btn.btn-danger(type='submit')
+        i.fa.fa-minus-circle
+        | Destory #{character.name}

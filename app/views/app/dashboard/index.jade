@@ -1,8 +1,21 @@
 extends ../../layouts/app
 
 block content
-  h1 This is the dashboard
-  p It is mostly unfunctional at the moment
-  p This may or may not have any thing to dow ith bugs and fdsakldf
-  p
-    img(src='/images/misfits.jpg')
+  h1 Welcome
+  - if (!context.hasCharacters)
+    .panel.panel-info
+      .panel-heading You do not have any characters as of yet
+      .panel-body.attention_grabber
+        p Please do not let the following image deter you
+        p: img(src='/images/misfits.png')
+        p
+          a.btn.btn-primary(href='/app/characters/new')
+            i.fa.fa-arrow-right
+            | Create now
+            i.fa.fa-arrow-left.attention_grabber__arrow_left
+  - else
+    .panel.panel-primary
+      .panel-heading
+        h2 To rejoin, select one of the characters below
+      .panel-body
+        include ../characters/_list

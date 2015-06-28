@@ -1,0 +1,29 @@
+extends ../../layouts/app
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li: | Your Billing
+
+  h1 Your Billing
+
+  ul.nav.nav-tabs(role="tablist")
+    li.active
+      a(href="#payment_info" role="tab" data-toggles="tab")
+        i.fa.fa-credit-card
+        |Your Billing
+    li
+      a(href="#invoices" role="tab" data-toggles="tab")
+        i.fa.fa-file
+        | Your Invoices
+
+  .tab-content
+    .tab-pane.active#payment_info.profile__tab_pane
+      p
+        Your prefered payment method is:
+
+    .tab-pane#invoices.profile__tab_pane
+      div Invoices

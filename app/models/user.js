@@ -10,7 +10,8 @@ function validateStringLength (value) {
 
 var schema = mongoose.Schema({
 	email: {type: String, required: true, unique: true, validate: [validate.email, 'is not a valid email address']},
-	passwordHash: {type: String, required: true, validate: [validateStringLength, 'is too short.']}
+	passwordHash: {type: String, required: true, validate: [validateStringLength, 'is too short.'],},
+	characters: [{type: mongoose.Schema.Types.ObjectId, ref: 'Character'}]
 });
 
 schema.pre('save', function(next) {

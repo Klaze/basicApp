@@ -25,16 +25,19 @@ global.App = {
 		}
 	},
 	model: function(path) {
-		return this.require('./app/models/' + path);
+		return this.require('app/models/' + path);
 	},
 	route : function(path) {
-		return this.require('./app/routes/' + path);
+		return this.require('app/routes/' + path);
 	},
 	middleware: function(path) {
 		return this.require('app/middlewares/' + path);
 	},
 	util: function(path) {
 		return this.require('app/utils/' + path);
+	},
+	presenter: function(path) {
+		return this.require('app/presenters/' + path);
 	},
 	command: function(path) {
 		return this.require('app/commands/' + path);

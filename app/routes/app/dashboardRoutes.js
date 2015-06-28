@@ -1,5 +1,10 @@
+var loadContext = App.presenter('dashboardPresenter');
+
 function index(req, res) {
-	res.render('/app/dashboard/index');
+	loadContext(req.user, function(err, dashboard) {
+		console.log(req.user.email);
+		res.render('app/dashboard/index', {context: dashboard});	
+	});
 }
 
-module.exports = index;
+exports.index = index;

@@ -7,7 +7,7 @@ function validateStringLength (value) {
 
 var schema = mongoose.Schema({
 	userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	name: {type: String, required: true, unique: true, validate: [validateStringLength, 'Character needs names of at least two characters.']}
+	name: {type: String, required: true, unique: true, default: '', validate: [validateStringLength, 'Character needs names of at least two characters.']}
 });
 
 schema.set('autoIndex', App.env !== 'production');
