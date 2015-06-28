@@ -1,6 +1,6 @@
-extends ../layouts/home
+extends ../../layouts/home
 
 block content
   h1 Are you Ready #{user.username}?
   form(action="/app/adventures" method="POST")
-    button(type="submit") Yes, my liege
+    button(type="submit") Yes, my liege #{bossify(user.username)}

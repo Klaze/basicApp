@@ -1,0 +1,60 @@
+extends ../../layouts/app
+
+block content
+  ol.breadcrumb
+    li
+      a(href='/app')
+        i.fa.fa-home
+        | Home
+    li: | The Profile
+
+  h1 The Profile
+
+  ul.nav.nav-tabs(role='tablist')
+    li.active
+      a(href='#profile' role='tab' data-toggle='tab')
+        i.fa.fa-gears
+        | The Information
+
+  .tab-content
+    .tab-pane.active#profile.profile__tab_pane
+      .row
+        .col-md-4
+          .profile__user_info
+            .profile__avatar_wrapper
+              img(src='/images/orc.png')
+
+          p= currentUser.email
+
+          p
+            button.btn.btn-primary
+              i.fa.fa-envelop
+              | Send Message
+        .col-md-8.profile__tab_pane__details
+          h3
+            i.fa.fa-paperclip
+            | Basic Information
+          table.table
+            tbody
+              tr
+                th Last Login
+                td Today at 12
+              tr
+                th Member Since
+                td Today
+          h3
+            i.fa.fa-group
+            |Guild Information
+          table.table
+            tbody
+              tr
+                th Guild Name
+                td Sputternucks
+              tr
+                th Joined
+                th Today
+              tr
+                th Rank
+                th Lord Commander
+        .tab-pane#settings.profile__tab_pane
+          div Settings will go here

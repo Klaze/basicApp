@@ -41,6 +41,8 @@ global.App = {
 	}
 };
 
+App.auth = App.require('app/authorization/accessControl');
+
 //Setting Jade as Render Engine and views
 App.app.set('views', App.appPath('app/views'));
 App.app.set('view engine', 'jade');
@@ -88,7 +90,7 @@ App.app.use(App.middleware('attachAuthenticationStatus'));
 App.app.use(App.app.router);
 App.app.use(express.static(App.appPath('public')));
 
-App.require('./config/routes')(App.app);
+App.require('./config/routes')(App.app, App.auth);
 
 //DB Bootstrapping
 App.require('config/database')(process.env.DATABASE_URL || 'mongodb://localhost/nodeslash_' + App.env);

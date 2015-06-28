@@ -4,13 +4,13 @@ exports.index = function index (req, res) {
 		username: 'Apophis'
 	};
 
-	res.render('adventures/index', {title: 'Adventures - GrandUltima', user: user});
+	res.render('app/adventures/index', {bossify: bossify, title: 'Adventures - GrandUltima', user: user});
 };
 
 exports.create = function create (req, res) {
-	res.render('adventures/create');
+	res.render('app/adventures/create');
 };
 
 exports.update = function update (req, res) {
-	res.render('adventures/update');
+	res.render('app/adventures/update');
 };

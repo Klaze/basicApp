@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/application.css')
+    link(type='text/css', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+  body.app
+    .wrap_all
+      include navBar
+
+      .container.main
+        .row
+          .col-sm-2.sidebar.sidenav
+            include sideNav
+          .col-sm-10.content
+            include flash
+            block content
+    footer.footer
+      | Grand Ultima is &copy;, 2015 Sketchy Inc.
+
+    block extraJs
+      script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+      script(src="/js/bootstrap.min.js")
+

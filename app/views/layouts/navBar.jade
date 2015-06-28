@@ -12,11 +12,25 @@ nav.navbar.navbar-inverse(role='navigation')
     ul.nav.navbar-nav
       li
         a(href='/about') About
+
+    ul.nav.navbar-nav.navbar-right
       - if(!isAuthenticated)
         li
           a(href='/sign_in') Sign In
         li
           a(href='/sign_up') Sign Up
       - else
-        li
-          a(href='/sign_out') Sign Out
+        li.dropdown
+          a(href='#' class='dropdown-toggle' data-toggle='dropdown')
+            = currentUser.email
+            span.caret
+          ul.dropdown-menu(role='menu')
+            li
+              a(href='/app/profile')
+                i.fa.fa-smile-o.fa-fw
+                | Your Profile
+            li.divider
+            li
+              a(href='/sign_out')
+                i.fa.fa-sign-out.fa-fw
+                | Log Out

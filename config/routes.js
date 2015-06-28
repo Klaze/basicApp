@@ -1,7 +1,7 @@
 var passport = require('passport');
 
 
-module.exports = function(app) {
+module.exports = function(app, auth) {
 	//Handlers
 	var homeRoutes = App.route('homeRoutes');
 	app.get('/', homeRoutes.home);
@@ -25,8 +25,12 @@ module.exports = function(app) {
 	app.get('/sign_out', sessionRoutes.destroy);
 
 	app.all('/app/*', App.middleware('ensureAuthenticated'));
-	var adventuresRoutes = App.route('adventuresRoutes');
+	var adventuresRoutes = App.route('app/adventuresRoutes');
 	app.get('/app/adventures', adventuresRoutes.index);
 	app.post('/app/adventures', adventuresRoutes.create);
 	app.put('/app/adventures/:id', adventuresRoutes.update);
+
+	var dashboardRoutes = App.route('app/dashboardRoutes');
+	app.get('/app/dasboard', dashboardRoutes.index);
+	
 };
