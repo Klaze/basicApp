@@ -48,7 +48,8 @@ module.exports = function(app, auth) {
 	app.get('/app/characters/new', characterRoutes.new);
 	app.post('/app/characters', characterRoutes.create);
 	app.get('/app/characters/:id', characterRoutes.show);
-	app.get('/app/characters/:id/edit', characterRoutes.edit);
-	app.put('/app/characters/:id', characterRoutes.update);
+	var canModifyCharacter = auth.can('modify character');
+	app.get('/app/characters/:id/edit', canModifyCharacter, characterRoutes.edit);
+	app.put('/app/characters/:id',canModifyCharacter, characterRoutes.update);
 	
 };

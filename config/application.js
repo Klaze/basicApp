@@ -93,6 +93,8 @@ App.app.use(App.middleware('attachAuthenticationStatus'));
 App.app.use(App.app.router);
 App.app.use(express.static(App.appPath('public')));
 
+App.app.use(App.middleware('notAuthorized'));
+
 App.require('./config/routes')(App.app, App.auth);
 
 //DB Bootstrapping

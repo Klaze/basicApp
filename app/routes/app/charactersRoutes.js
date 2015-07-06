@@ -45,7 +45,17 @@ function edit(req, res) {
 
 var updateCharacter = App.command('character/update')();
 function update(req, res) {
-
+	updateCharacter(
+		req.params.id,
+		req.body.character,
+		function on Success() {
+			req.flash('notice', 'You have succesfully updated');
+			res.redirect('app/characters/' + req.params.id);
+		},
+		function onError() {
+			res.render('app/characters/edit', {character: record, flash:{'error', 'Error occured updated the charcter'}});
+		}
+	);
 }
 
 function destroy(req, res) {
