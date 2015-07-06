@@ -48,12 +48,12 @@ function update(req, res) {
 	updateCharacter(
 		req.params.id,
 		req.body.character,
-		function on Success() {
+		function onSuccess() {
 			req.flash('notice', 'You have succesfully updated');
 			res.redirect('app/characters/' + req.params.id);
 		},
 		function onError() {
-			res.render('app/characters/edit', {character: record, flash:{'error', 'Error occured updated the charcter'}});
+			res.render('app/characters/edit', {character: record, flash:{'error': 'Error occured updated the charcter'}});
 		}
 	);
 }

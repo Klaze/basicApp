@@ -1,6 +1,7 @@
 var auth = require('authorized');
 
 auth.role('character.owner', function(record, req, cb) {
+	console.log('user.id is: ' + req.user.id);
 	console.log('character.owner:', record);
 
 	cb(null, req.user.id === record.userId.toString());
