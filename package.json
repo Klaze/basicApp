@@ -21,6 +21,11 @@
   },
   "devDependencies": {
     "mocha": "1.17.x",
-    "supertest": "0.9.x"
+    "supertest": "0.9.x",
+    "node-dev": "~2.6.2"
+  },
+  "scripts" : {
+    "start": "node_modules/node-dev/bin/node-dev server",
+    "c": "bin/console"
   }
 }

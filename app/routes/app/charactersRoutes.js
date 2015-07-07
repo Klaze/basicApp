@@ -4,6 +4,7 @@ var loadContext = App.presenter('dashboardPresenter');
 
 function index(req, res) {
 	loadContext(req.user, function(err, dashboard) {
+		console.log('index');
 		res.render('app/characters/index', {context: dashboard});
 	});
 }
